@@ -50,4 +50,15 @@ First, we find an interface that requires authentication to access, `/api/admin/
 
 Then, we tried to access this endpoint by Postman without authentication information. We can see that due to the lack of authentication information, there is no results returned.
 
-![normal access](https://github.com/DYX217/directory-traversal/blob/main/image/normal.png)
+![normal access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/normal.png)
+
+It can also be seen from the SpringBoot server log that the request was successfully intercepted by the filter
+
+![normal access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/log.png)
+
+After that, also without authentication information, we try to access the `/api/aaa;/../admin/content/article` interface. We can see that the access is successful.
+
+![normal access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/bypass.png)
+
+## impact
+Users can use directory traversal to carefully construct URLs to bypass the path matching rules in Shiro config.
