@@ -54,11 +54,11 @@ Then, we tried to access this endpoint by Postman without authentication informa
 
 It can also be seen from the SpringBoot server log that the request was successfully intercepted by the filter
 
-![normal access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/log.png)
+![server log](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/log.jpg)
 
 After that, also without authentication information, we try to access the `/api/aaa;/../admin/content/article` interface. We can see that the access is successful.
 
-![normal access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/bypass.png)
+![bypass access](https://github.com/DYX217/Incorrect-Access-Control/blob/main/image/bypass.png)
 
 ## impact
 Users can use directory traversal to carefully construct URLs to bypass the path matching rules in Shiro config.
